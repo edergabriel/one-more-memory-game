@@ -1,0 +1,132 @@
+//body { font-family: sans-serif; background: #d0d0d0; display: flex; margin: 0;}
+
+.cards button {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+}
+
+.card {
+  width: 100px;
+  height: 160px;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+  margin: 10px;
+  float: left;
+  border-radius: 10px;
+  box-shadow: 2px 3px 7px -1px rgba(0, 0, 0, 0.2);
+  /*animation-name: example;*/
+  /*animation-duration: 1s;*/
+  -webkit-animation: scale__cards 1.2s ease-in-out alternate;
+  -moz-animation: scale__cards 1.2s ease-in-out alternate;
+  -o-animation: scale__cards 1.2s ease-in-out alternate;
+  animation: scale__cards 1.2s ease-in-out alternate;
+}
+
+@keyframes scale__cards {
+  0%   {             
+    transform: scale(0);
+    -webkit-transform: scale(0.0);
+  }
+  100% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+.card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card__face {
+  width: 100%;
+  height: 100%;
+  line-height: 160px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+.card__face--back {
+  background: url('img/bgCardBack.png');
+  position: absolute;
+  top: 0;
+}
+
+.card__face--back  div {
+  background-color: #7b7b7b2e;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  width: 85%;
+  height: 90%;
+  margin: 8px auto;
+}
+
+.card__face--front {
+  background: #e4e4e4;
+  transform: rotateY(180deg);
+  font-size: 80px;
+  color: #333;
+}
+
+.hud {
+  bottom: 0;
+  padding: 10px;
+  width: 100%;
+  position: fixed;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  color: #fff;
+  z-index: 2;
+  display: flex;
+}
+
+.hud div {
+  background: #525252;
+  width: max-content;
+  padding: 0 10px;
+  margin: 0 10px;
+}
+
+.hud span {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.none {
+  display: none;
+}
+
+
+.modal {
+    background-color: rgba(0,0,0, 0.7);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    border-radius: 10px;
+
+    .container {
+        background: rgba(255, 255, 255, 1);
+        padding: 15px;
+        text-align: center;
+
+        h2 {
+            text-transform: uppercase;
+        }
+    }
+
+}
