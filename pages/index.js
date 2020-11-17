@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import React, { useState } from 'react';
+import { useState } from 'react';
 import RestartGame from '../components/restartGame'
 
 
@@ -28,7 +28,7 @@ function checkValue(number) {
 
 function createPositions(number) {
   let positions = []
-
+  let shufflePositions = []
   for (var i = 0; i < number; i++) {
     let typeChar = i;
     let selectedChar;
@@ -41,6 +41,7 @@ function createPositions(number) {
     selectedChar = chars[numberSelectChars];
     positions.push({ id: i, type: typeChar, title: selectedChar});
   }
+  //shufflePositions = shuffleArray(positions)
   return positions;
 }
 
@@ -58,8 +59,7 @@ function newGame() {
   openCard = false;
   validClick = 0; 
   positions = createPositions(30);
-  console.log(positions) 
- // positions = shuffleArray(positions);
+  //positions = shuffleArray(positions);
 }
 
 newGame();
@@ -89,7 +89,7 @@ export default function Home() {
             if(nodeSelected === 0) {
               nodeSelected = node
             } else {
-              console.log(node, nodeSelected)
+              //console.log(node, nodeSelected)
               if(node.dataset.type !== nodeSelected.dataset.type) {
                 node.classList.remove('is-flipped')
                 nodeSelected.classList.remove('is-flipped')
@@ -99,7 +99,6 @@ export default function Home() {
                 if(document.querySelectorAll('.card.finded').length >= document.querySelectorAll('.card').length) {
                   setFinishGame(true)
                   setFlgRecord(true)
-                  console.log(numberTouches, record);
                   if(numberTouches < record) {
                     setRecord(numberTouches + 1);
                   }
