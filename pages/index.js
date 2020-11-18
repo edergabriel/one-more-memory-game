@@ -27,7 +27,7 @@ function checkValue(number) {
 }
 
 function createPositions(number) {
-  let positions = []
+  let positionsInitials = []
   let shufflePositions = []
   for (var i = 0; i < number; i++) {
     let typeChar = i;
@@ -39,16 +39,17 @@ function createPositions(number) {
       removeChars.push(numberSelectChars)
     }
     selectedChar = chars[numberSelectChars];
-    positions.push({ id: i, type: typeChar, title: selectedChar});
+    //console.log(Math.floor(Math.random() * (number + 1)));
+    positionsInitials.push({ id: i, type: typeChar, title: selectedChar});
   }
-  //shufflePositions = shuffleArray(positions)
-  return positions;
+  //shufflePositions = shuffleArray(positionsInitials)
+  return positionsInitials;
 }
 
 function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
+  for (let i = array.length - 1; i >= 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+      //[array[i], array[j]] = [array[j], array[i]];
   }
   return array
 }
